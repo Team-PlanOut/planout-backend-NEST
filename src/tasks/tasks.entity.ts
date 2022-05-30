@@ -1,0 +1,19 @@
+import { Events } from "src/events/events.entity";
+import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
+
+@Entity()
+export class Tasks {
+    @PrimaryGeneratedColumn()
+    id: number;
+
+    @Column()
+    description: string;
+
+    @Column()
+    status: boolean;
+
+    @ManyToMany(type => Events) @JoinTable()
+    events: Events[];
+
+
+}
