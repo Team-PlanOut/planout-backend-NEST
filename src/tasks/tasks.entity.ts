@@ -12,6 +12,9 @@ export class Tasks {
     @Column()
     status: boolean;
 
+    @Column()
+    points: number;
+
     @ManyToMany(type => Events) @JoinTable()
     events: Events[];
 
