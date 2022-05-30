@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { EventsController } from "src/events/events.controller";
+import { TasksController } from "src/tasks/tasks.controller";
+import { Column, Entity, JoinTable, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Users {
@@ -17,6 +19,12 @@ export class Users {
 
     @Column()
     friendsList: [];
+
+    // @OneToMany(type => Event) @JoinTable()
+    // events: Event[]; 
+
+    // @OneToMany(type => Task) @JoinTable()
+    // tasks: Task[];
 
     //check if typeorm has self generated created and update times
 }
