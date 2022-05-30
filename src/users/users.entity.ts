@@ -20,6 +20,9 @@ export class Users {
     @Column()
     friendsList: [];
 
+    @Column()
+    points: number;
+
     @ManyToMany(type => Events) @JoinTable()
     events: Events[]; 
 
@@ -27,6 +30,5 @@ export class Users {
     tasks: Tasks[];
 
     
-
     //check if typeorm has self generated created and update times
 }
