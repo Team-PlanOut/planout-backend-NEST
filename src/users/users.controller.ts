@@ -8,22 +8,28 @@ export class UsersController {
 
     }
 
-    @Get('/:userId')
+    @Get('/:id')
     getUserById() {
 
     }
+
+    @Get('/:name')
+    getUserByUserName() {
+
+    }
+
 
     @Post()
     createNewUser() {
 
     }
 
-    @Put(':/userId')
+    @Put(':/id')
     updateUserById(){
 
     }
 
-    @Delete(':/userId')
+    @Delete(':/id')
     deleteUser() {
 
     }
