@@ -15,6 +15,6 @@ export class FriendsController {
 
     @Get()
     getSharedFriendEventsById(){
-        
+
     }
 }
