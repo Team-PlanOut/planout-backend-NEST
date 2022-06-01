@@ -10,13 +10,20 @@ export class Users extends BaseEntity {
     @PrimaryColumn()
     id: string; // from firebase?
 
-    @Column()
+    @Column({
+        unique: true,
+        nullable: false,
+    })
     email: string;
 
-    @Column()
+    @Column({
+        nullable: false,
+    })
     firstName: string;
 
-    @Column()
+    @Column({
+        nullable: false,
+    })
     lastName: string;
 
     @Column()
