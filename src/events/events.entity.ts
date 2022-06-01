@@ -11,13 +11,21 @@ export class Events {
     @Column()
     host: string; //reference single user as host  //fix this
 
-    @Column()
+    @Column({
+        nullable: false,
+    })
     eventName: string;
 
-    @Column()
+    @Column({
+        type: "date",
+        nullable: false,
+    })
     date: Date;
 
-    @Column("time")
+    @Column({
+        type: "timestamp with time zone",
+        nullable: false,
+    })
     time: Timestamp;
 
     @Column()
