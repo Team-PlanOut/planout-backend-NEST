@@ -1,8 +1,8 @@
 export default class UpdateUserDto {
-    readonly firstName: string;
-    readonly lastName: string;
-    readonly points: number; 
-    readonly email: string;
+    firstName: string;
+    lastName: string;
+    points: number; 
+    email: string;
 
     //user columns for creating a new user 
 }
