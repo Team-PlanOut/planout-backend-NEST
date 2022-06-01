@@ -20,3 +20,6 @@ export class Tasks {
 
 
 }
+
+
+//time completed task ?
