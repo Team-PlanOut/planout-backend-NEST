@@ -1,8 +1,9 @@
 import { Events } from "src/events/events.entity";
-import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn, Timestamp } from "typeorm";
+import { Users } from "src/users/users.entity";
+import { BaseEntity, Column, Entity, JoinTable, ManyToMany, OneToOne, PrimaryGeneratedColumn, Timestamp } from "typeorm";
 
 @Entity()
-export class Tasks {
+export class Tasks extends BaseEntity{
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -24,6 +25,9 @@ export class Tasks {
 
     @Column("datetime")
     deadline: Date; //Date and time
+    
+    @OneToOne(type=> Users)
+    user: Users; //TODO
 }
 
 
