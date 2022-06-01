@@ -1,13 +1,14 @@
 import { type } from "os";
 import { Events } from "src/events/events.entity";
+import { Friends } from "src/friends/friends.entity";
 import { Tasks } from "src/tasks/tasks.entity";
 import { BaseEntity, Column, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Users extends BaseEntity {
 
-    @PrimaryGeneratedColumn()
-    id: string;
+    @PrimaryColumn()
+    id: string; // from firebase?
 
     @Column()
     email: string;
@@ -19,9 +20,6 @@ export class Users extends BaseEntity {
     lastName: string;
 
     @Column()
-    friendsList: []; // check and fix later
-
-    @Column()
     points: number;
 
     @OneToMany(type => Events, events=>Events) @JoinTable() //check
@@ -30,6 +28,8 @@ export class Users extends BaseEntity {
     @OneToMany(type => Tasks, tasks=>Tasks) @JoinTable() //check
     tasks: Tasks[];
 
+    @ManyToMany(type=>Friends, friends => Friends) @JoinTable()
+    friends: number;
 
     //check if typeorm has self generated created and update times
 }
