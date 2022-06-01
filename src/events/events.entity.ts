@@ -1,9 +1,9 @@
 import { Tasks } from "src/tasks/tasks.entity";
 import { Users } from "src/users/users.entity";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, Timestamp } from "typeorm";
+import { BaseEntity, Column, Entity, ManyToOne, OneToOne, PrimaryGeneratedColumn, Timestamp } from "typeorm";
 
 @Entity()
-export class Events {
+export class Events extends BaseEntity{
 
     @PrimaryGeneratedColumn()
     id: number;
@@ -30,6 +30,9 @@ export class Events {
 
     @Column()
     budget: number;
+
+    @OneToOne(type => Users)
+    // TO DO
 
     @ManyToOne(type => Users)
     users: Users;
