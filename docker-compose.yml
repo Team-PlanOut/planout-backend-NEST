@@ -2,7 +2,7 @@ services:
   # 1. PG Database Service
   database:
     image: postgres:14.3
-    container_name: planout-db
+    container_name: planout-NEST-db
     # Map your host data to the container's data
     volumes:
       - pgdata:/var/lib/postgresql/data
@@ -19,7 +19,7 @@ services:
   # 2. Backend API Service
   backend:
     image: node:14.17.3
-    container_name: planout-api
+    container_name: planoutNEST-api
     # Sets container's root directory
     working_dir: /planout-backend-NEST
     # Map project directory on host (source) to the container file system
@@ -41,6 +41,6 @@ services:
 networks:
   planout-net:
     driver: "bridge"
-# Required. Declare volumnes
+# Required. Declare volumes
 volumes:
   pgdata:
