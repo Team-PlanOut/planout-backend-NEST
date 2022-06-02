@@ -6,7 +6,7 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
     port: 5432,
     username: 'postgres',
     password: 'postgres',
-    database: 'projectplant',
+    database: 'planout',
     entities: [__dirname + '/../**/*.entity.ts'],
     synchronize: true, 
 }; //use env later instead of hard code
