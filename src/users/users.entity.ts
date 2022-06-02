@@ -32,7 +32,7 @@ export class Users extends BaseEntity {
     @OneToMany(() => Events, hostedEvents => hostedEvents.host, { cascade: true })
     hostedEvents: Events[];
 
-    @ManyToMany(() => Events, events => events.users, { cascade: true }) @JoinTable() //check
+    @ManyToMany(() => Events, events => events.users) @JoinTable() //check
     events: Events[];
 
     @ManyToMany(() => Tasks, tasks => tasks.users) @JoinTable() //check
@@ -41,13 +41,11 @@ export class Users extends BaseEntity {
     // @ManyToMany(type => Friends, friends => friends.id) @JoinTable()
     // friends: Friends[];
 
-   
     @ManyToMany(() => Users, (users) => users.following) @JoinTable()
     followers: Users[];
-    
+
     @ManyToMany(() => Users, (users) => users.followers)
     following: Users[];
-
 
 
     @CreateDateColumn()
