@@ -1,15 +1,12 @@
 import { Tasks } from "src/tasks/tasks.entity";
 import { Users } from "src/users/users.entity";
-import { BaseEntity, Column, Entity, ManyToOne, OneToOne, PrimaryGeneratedColumn, Timestamp } from "typeorm";
+import { BaseEntity, Column, CreateDateColumn, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, Timestamp, UpdateDateColumn } from "typeorm";
 
 @Entity()
-export class Events extends BaseEntity{
+export class Events extends BaseEntity {
 
     @PrimaryGeneratedColumn()
     id: number;
-
-    @Column()
-    host: string; //reference single user as host  //fix this
 
     @Column({
         nullable: false,
@@ -31,18 +28,26 @@ export class Events extends BaseEntity{
     @Column()
     budget: number;
 
-    @OneToOne(type => Users)
-    // TO DO
+    @ManyToOne(() => Users, host => host.hostedEvents)
+    host: Users;
 
-    @ManyToOne(type => Users)
-    users: Users;
+    @ManyToMany(() => Users, users => users.events) @JoinTable()//many users to a single event
+    users: Users[];
 
-    @ManyToOne(type => Tasks) //double check relations
-    tasks: Tasks;
-
-
+    // @ManyToOne(type => Tasks, tasks => tasks.id) @JoinTable()
+    // tasks: Tasks[];
 
 
+    @OneToMany(() => Tasks, tasks => tasks.event, { cascade: true })
+    tasks: Tasks[]
 
+
+
+
+    @CreateDateColumn()
+    created!: Date;
+
+    @UpdateDateColumn()
+    updated!: Date;
 
 }
