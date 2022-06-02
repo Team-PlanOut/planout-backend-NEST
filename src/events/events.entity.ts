@@ -39,9 +39,7 @@ export class Events extends BaseEntity {
 
 
     @OneToMany(() => Tasks, tasks => tasks.event, { cascade: true })
-    tasks: Tasks[]
-
-
+    tasks: Tasks[];
 
 
     @CreateDateColumn()
