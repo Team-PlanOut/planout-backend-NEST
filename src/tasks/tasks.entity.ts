@@ -32,13 +32,9 @@ export class Tasks extends BaseEntity {
     // @ManyToMany(type => Users, user => user.id)
     // user: Users[];     
 
-
     @CreateDateColumn()
     created!: Date;
 
     @UpdateDateColumn()
     updated!: Date;
 }
-
-
-//time completed task ?
