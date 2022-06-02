@@ -17,9 +17,9 @@ export class TasksService {
         return Tasks.find();
     };
 
-    async getTaskById(taskId: number): Promise<Tasks[]> {
+    async getTaskById(taskId: number): Promise<Tasks> {
         const task: Tasks = await Tasks.findOne({ where: { id: taskId } });
-        return task[0];
+        return task;
     };
 
     // need getTaskByUserId
