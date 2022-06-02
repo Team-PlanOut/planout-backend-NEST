@@ -28,17 +28,17 @@ export class Events extends BaseEntity {
     @Column()
     budget: number;
 
-    @ManyToOne(() => Users, host => host.hostedEvents)
+    @ManyToOne(type => Users, host => host.hostedEvents)
     host: Users;
 
-    @ManyToMany(() => Users, users => users.events) @JoinTable()//many users to a single event
-    users: Users[];
+    @ManyToMany(type => Users, users => users.events) @JoinTable()//many users to a single event
+    users: Promise<Users[]>;
 
     // @ManyToOne(type => Tasks, tasks => tasks.id) @JoinTable()
     // tasks: Tasks[];
 
 
-    @OneToMany(() => Tasks, tasks => tasks.event, { cascade: true })
+    @OneToMany(type => Tasks, tasks => tasks.event, { cascade: true })
     tasks: Tasks[];
 
 
