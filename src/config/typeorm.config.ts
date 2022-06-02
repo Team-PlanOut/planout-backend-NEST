@@ -8,5 +8,6 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
     password: 'postgres',
     database: 'projectplant',
     entities: [__dirname + '/../**/*.entity.ts'],
-    synchronize: true, //change to false later
+    synchronize: true, 
 }; //use env later instead of hard code
+//TODO synchronize true during development false during production
