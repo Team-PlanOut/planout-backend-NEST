@@ -8,7 +8,7 @@ import { BaseEntity, Column, CreateDateColumn, Entity, JoinTable, ManyToMany, Ma
 export class Users extends BaseEntity {
 
     @PrimaryColumn()
-    id: string | number; // from firebase?
+    id: number | string; // from firebase?
 
     @Column({
         unique: true,
@@ -29,22 +29,22 @@ export class Users extends BaseEntity {
     @Column()
     points: number;
 
-    @OneToMany(() => Events, hostedEvents => hostedEvents.host, { cascade: true })
+    @OneToMany(type => Events, events => events.host, { cascade: true })
     hostedEvents: Events[];
 
-    @ManyToMany(() => Events, events => events.users) @JoinTable() //check
+    @ManyToMany(type => Events, events => events.users) @JoinTable() //check
     events: Events[];
 
-    @ManyToMany(() => Tasks, tasks => tasks.users) @JoinTable() //check
+    @ManyToMany(type => Tasks, tasks => tasks.users) @JoinTable() //check
     tasks: Tasks[];
 
     // @ManyToMany(type => Friends, friends => friends.id) @JoinTable()
     // friends: Friends[];
 
-    @ManyToMany(() => Users, (users) => users.following) @JoinTable()
+    @ManyToMany(type => Users, (users) => users.following) @JoinTable()
     followers: Users[];
 
-    @ManyToMany(() => Users, (users) => users.followers)
+    @ManyToMany(type => Users, (users) => users.followers)
     following: Users[];
 
 
