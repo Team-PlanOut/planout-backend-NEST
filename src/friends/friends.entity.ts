@@ -1,5 +1,5 @@
 import { Users } from "src/users/users.entity";
-import { Column, Entity, JoinColumn, JoinTable, ManyToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, PrimaryColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity()
 export class Friends {
@@ -12,5 +12,12 @@ export class Friends {
 
     @ManyToMany(type => Users, friends => Users) @JoinTable()
     friends: Users;
+
+
+    @CreateDateColumn()
+    created!: Date;
+
+    @UpdateDateColumn()
+    updated!: Date; 
 
 }
