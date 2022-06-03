@@ -7,7 +7,9 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
     username: 'postgres',
     password: 'postgres',
     database: 'planout',
-    entities: [__dirname + '/../**/*.entity.ts'],
+    migrationsRun: true,
+    entities: [ 'src/entities/*.ts'],//edit here
+    migrations: ['src/migrations/*.ts'],
     synchronize: true, 
-}; //use env later instead of hard code
+}; 
 //TODO synchronize true during development false during production
