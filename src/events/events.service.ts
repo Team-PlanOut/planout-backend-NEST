@@ -16,9 +16,9 @@ export class EventsService {
         return Events.find();
     };
 
-    async getEventById(eventId: number): Promise<Events[]> {
+    async getEventById(eventId: number): Promise<Events> {
         const event: Events = await Events.findOne({ where: { id: eventId } });
-        return event[0];
+        return event;
     };
 
     async getEventByHostId(hostId: unknown ): Promise<Events[]> {
