@@ -15,9 +15,9 @@ export class UsersService {
         return Users.find();
     };
 
-    async getUserById(userId: string): Promise<Users[]> {
+    async getUserById(userId: string): Promise<Users> {
         const user: Users = await Users.findOne({ where: { id: userId } });
-        return user[0];
+        return user;
     };
 
     async getUserByUserName(userName: string): Promise<Users[]> {
