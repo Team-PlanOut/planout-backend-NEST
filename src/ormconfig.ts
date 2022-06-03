@@ -10,5 +10,9 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
     migrationsRun: true,
     entities: [ 'src/entities/*.ts'],//edit here
     migrations: ['src/migrations/*.ts'],
-    synchronize: true, 
+    synchronize: false, 
+    cli: {
+        entitiesDir: "src/entities",
+        migrationsDir: "src/migrations",
+      },
 }; 
