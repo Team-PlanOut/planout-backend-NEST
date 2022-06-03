@@ -30,8 +30,8 @@ export class TasksService {
 
     // need getTaskByEventId
     async getTaskByEventId(eventId: number): Promise<Tasks[]> {
-        const task: Tasks[] = await Tasks.find({ where: { id: eventId } });
-        return task;
+        const tasks: Tasks[] = await Tasks.find({ where: { event: eventId } });
+        return tasks;
     }
     // need deleteTask
     async deleteTask(taskId: number): Promise<Tasks[]> {
