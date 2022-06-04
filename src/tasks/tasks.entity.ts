@@ -9,7 +9,7 @@ export class Tasks extends BaseEntity {
 
     @Column({
         nullable: false,
-    })
+    }) 
     description: string;
 
     @Column({
