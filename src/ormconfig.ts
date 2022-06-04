@@ -1,4 +1,5 @@
 import { TypeOrmModuleOptions } from "@nestjs/typeorm";
+//import { ConnectionOptions } from "typeorm";
 
 export const typeOrmConfig: TypeOrmModuleOptions = {
     type: 'postgres',
