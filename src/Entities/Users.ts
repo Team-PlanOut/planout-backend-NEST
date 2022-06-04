@@ -4,7 +4,7 @@ import { Friends } from "src/friends/friends.entity";
 import { Tasks } from "src/tasks/tasks.entity";
 import { BaseEntity, Column, CreateDateColumn, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
-@Entity()
+@Entity({name: 'Users'})
 export class Users extends BaseEntity {
 
     @PrimaryColumn()
