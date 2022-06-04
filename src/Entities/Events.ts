@@ -2,7 +2,7 @@ import { Tasks } from "src/tasks/tasks.entity";
 import { Users } from "src/users/users.entity";
 import { BaseEntity, Column, CreateDateColumn, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, Timestamp, UpdateDateColumn } from "typeorm";
 
-@Entity()
+@Entity({name: 'Events'})
 export class Events extends BaseEntity {
 
     @PrimaryGeneratedColumn()
