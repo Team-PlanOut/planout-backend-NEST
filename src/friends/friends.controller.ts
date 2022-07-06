@@ -8,12 +8,12 @@ export class FriendsController {
 
     }
 
-    @Get()
+    @Get() //TODO
     getFriendsById() {
 
     }
 
-    @Get()
+    @Get() //TODO
     getSharedFriendEventsById(){
 
     }

@@ -1,23 +1,30 @@
 import { Controller, Delete, Get, Post, Put } from '@nestjs/common';
+import { TasksService } from "src/tasks/tasks.service";
+
 
 @Controller('tasks')
 export class TasksController {
+    constructor(private readonly tasksService: TasksService) { }
 
     @Get()
     getAllTasks() {
-
+        return this.tasksService.getAllTasks();
     }
 
     @Get('/:id')
-    getTaskById() { }
+    getTaskById(taskId: number) {
+        return this.tasksService.getTaskById(taskId)
+    }
 
     @Get('/event/:id')
-    getTasksByEvent() {
+    getTasksByEvent(eventId: number) {
+        return this.tasksService.getTaskByEventId(eventId)
 
     }
 
     @Get('/user/:id')
-    getTasksByUser() {
+    getTasksByUser(userId: string) {
+        return this.tasksService.getTasksByUserId(userId);
 
     }
 
@@ -33,7 +40,7 @@ export class TasksController {
 
     @Delete('/:id')
     deleteTask() {
-        
+
     }
 
 
